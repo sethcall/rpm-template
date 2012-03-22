@@ -1,0 +1,19 @@
+A very simple template for building RPMS.
+
+Requires:rpmbuild   (on fedora/redhat: yum install @development-tools)
+
+The script bash/build.sh encapsulates the common boilerplate operations that have to occur before and after one invokes 'rpmbuild', with a assumption that you have a source tree already, and don't want to spend alot of time learning everything about RPMS.  
+
+The one thing this script does not help you with is creating a good .spec file, beyond helping you parameterize the project's name, version, and release.  So, this template would help you quickly tie a build number from a build server to the RPM release, but it won't do much to educate you on all the phases and operations that go on in a .spec file.
+
+If you are new to building RPMS, you might be saying, 'well, so what'.  However, the preparation one must do before taking a source tree and invoking rpmbuild on it is, in and of itself, very error prone and still it's own learning curve.  So, this script will parameterize the project name, version, and release of the RPM, and do the right thing in terms of generating a tgz appropriately formed for running rpmbuild. 
+
+The other benefit to this project is that it's very small and simple, with the idea that at least you can see a working RPM build setup that has very little kruft that you would have to dust off to use in your own environment.
+
+An example usage of bash/build.sh is:
+
+rpm-template$ bash/build.sh --project project1 --specfile spec/rpm-template.spec --sourcedir src
+
+This will generate an RPM in rpm-template/target/rpm , which you can install.  Once installed, you can verify it worked by seeing the existence of the file /opt/project1/my_code
+
+
