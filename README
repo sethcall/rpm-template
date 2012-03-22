@@ -1,3 +1,4 @@
+LICENSE: MIT
 A very simple template for building RPMS.
 
 Requires:rpmbuild   (on fedora/redhat: yum install @development-tools)
